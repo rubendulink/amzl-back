@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  
+<style>
+  .gradient {
+    background-image: linear-gradient(rgb(21, 106, 209), rgb(55, 16, 129));
+    background-color: transparent !important;
+  }
+  body {
+    padding: 0 1.5em;
+    font-size: 14px;
+  }
+  .title {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .step {
+    text-align: center;
+  }
+  .step-text {
+    color: #fff;
+    border-radius: 10px;
+    padding: .2em .8em;
+    text-align: center; 
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .icon {
+    background: slategrey;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    border-radius: 15px;
+    float: left;
+  }
+  .data {
+    float: left;
+    margin-right:77.6vw;
+    margin-left: 1em;
+  }
+  .data p:first-child{
+    margin-top: 10px;
+  }
+  header{
+    display: block;
+    height: 7em
+  }
+  .textarea {
+    width: 100%; 
+    height: 5em;
+    resize: none;
+    border: 1px solid #c6c6c6;
+    outline: none; 
+  }
+  .list_item {
+    font-weight: bold;
+    float: left;
+  }
+  .data {
+    border-radius: 15px;
+    padding:.4em 1em;
+    color: #fff;
+    font-weight: bold;
+    width: 96%;
+    font-size: 17px;
+    margin: 0 auto;
+  }
+  .data__item:nth-of-type(2) {
+    margin: 0 2%;
+  }
+
+  .data-container {
+    width: 45%;
+    display: inline-block;
+  }
+  .data-container:nth-of-type(2){
+    float: right;
+  }
+  .divider {
+    padding: 10% 0
+  }
+  td {
+    width: 50%;
+    padding: 0 .5em;
+  }
+  .img-container img {
+    display: block;
+    margin: 0 auto;
+    max-width: 350px;
+  }
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+
+<body>
+  <header>
+    <h1>
+      Safety
+    </h1>
+
+    <!-- <div class="icon gradient"></div> -->
+    <div class="data gradient">
+      <span class="data__item">
+        From: <span><%= data.date %></span>
+      </span>
+      <span class="data__item">
+        User: <span><%= data.safetyData.user %></span>
+      </span>
+      <span class="data__item">
+        Site: <span><%= data.name %></span>
+      </span>
+    </div>
+  </header>
+
+  <br>
+
+  <main>
+    <!-- step 1 -->
+
+    <div class="step">
+      <span class="step-text gradient">Step 1</span>
+    </div>
+    <h2 style="text-align: center;"><%= data.safetyData.incidentType %></h2>
+    <br>
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <p>
+              <strong>Incident Description: </strong><%= data.safetyData.incidentDescription %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <strong>Did the driver seek Medical Attention: </strong><%= data.safetyData.requireMedicalAtention ? "Yes" : "No" %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Location of Medical Atention: </strong><%= data.safetyData.locationMedicalAtention %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <strong>Driver Contact Number: </strong><%= data.safetyData.driverContactNumber %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Driver hire date: </strong><%= data.safetyData.driverHireDate %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <strong>Original date Driver training: </strong><%= data.safetyData.driverHireDateOriginal %>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <strong>Current Fico ficoScore: </strong><%= data.safetyData.ficoScore %>
+            </p>
+          </td>
+          <td>
+            <p>
+              <strong>Any Previous Incident?: </strong><%= data.safetyData.anyPreviousIncident ? "Yes" : "No" %>
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- step 2 -->
+
+    <div class="divider" style="page-break-before:always;">
+      <div class="step">
+        <span class="step-text gradient">Step 2</span>
+      </div>
+
+      <br><br>
+
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <p>
+                <strong>What type of vehicles were involved in the event?: </strong><%= data.safetyData.vehicleTypesInvolved %>
+              </p>
+            </td>
+            <td>
+              <p>
+                <strong>Was the pre-trip vehicle checklist completed?: </strong><%= data.safetyData.vehicleChecklistCompleted.boolean ? "Yes" : "No" %>
+              </p>
+              <u><strong>Comments</strong></u>
+              <p><%= data.safetyData.vehicleChecklistCompleted.comment %></p>
+
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <p>
+                <strong>If issues were identified in the pre-trip inspection, What were they and did they contribute to this incident?: </strong><%= data.safetyData.preTrip_Inspection.boolean ? "Yes" : "No" %>
+              </p>
+              <u><strong>Comments</strong></u>
+              <p><%= data.safetyData.preTrip_Inspection.comment %></p>
+
+            </td>
+            <td>
+              <p>
+                Where they any environmental factors contributing to the event?: <strong><%= data.safetyData.environmental_factors.boolean ? "Yes" : "No" %></strong>
+              </p>
+              <u><strong>Comments</strong></u>
+              <p><%= data.safetyData.environmental_factors.comment %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <strong>Did the driver self-report this incident?: </strong><%= data.safetyData.selfReportIncident ? "Yes" : "No" %>
+              </p>
+
+            </td>
+            <td>
+              <p>
+                <strong the driver found to be at fault?: <strong><%= data.safetyData.driver_be_fault.boolean ? "Yes" : "No" %></strong>
+              </p>
+              <u><strong>Comments</strong></u>
+              <p><%= data.safetyData.driver_be_fault.comment %></p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <strong>After the event, Does the vehicle require maintenance work to bring the vehicle back into service?: </strong><%= data.safetyData.vehicleRequireMaintenance ? "Yes" : "No" %>
+              </p>
+
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- step 3 -->
+
+    <div class="divider" style="page-break-before:always;">
+      <div class="step">
+        <span class="step-text gradient">Step 3</span>
+      </div>
+
+      <br><br>
+
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <p>
+                <strong>Police Report #: </strong><%= data.safetyData.policeReport %>
+              </p>
+
+            </td>
+            <td>
+              <p>
+                <strong>Police Presence: </strong><%= data.safetyData.policePresence %>
+              </p>
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <strong>Drug Test and Breathalyzer Completed?: </strong><%= data.safetyData.drugTestCompleted ? "Yes" : "No" %>
+              </p>
+
+            </td>
+            <td>
+              <p>
+                <strong>Disciplinary action provided?: </strong> <%= data.safetyData.disciplinaryAction %>
+              </p>
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <Strong>Details: </strong><%= data.safetyData.details %>
+              </p>
+
+            </td>
+            <td>
+              <p>
+                <strong>Cause: </strong><%= data.safetyData.rootCause %>
+              </p>
+
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>
+                <strong>Corrective Action: </strong><%= data.safetyData.correctiveAction %>
+              </p>
+
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- step 4 -->
+
+    <div class="divider" style="page-break-before:always;">
+      <div class="step">
+        <span class="step-text gradient">Step 4</span>
+      </div>
+
+      <br><br>
+      
+      <p>
+        <strong>Picture of vehicle damage</strong>
+      </p>
+      <div class="img-container">
+        <img class="img" src="<%= data.safetyData.VEHICLE_PICTURE.url %>" alt="VEHICLE_PICTURE"/>
+      </div>
+      <p>
+        <strong>GOOGLE EARTH Location View</strong>
+      </p>
+      <div class="img-container">
+        <img src="<%= data.safetyData.GOOGLE_EARTH.url %>" alt="GOOGLE_EARTH"/>
+      </div>
+    </div>
+
+  </main>
+</body>
+
+</html>

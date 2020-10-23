@@ -1,0 +1,64 @@
+{
+  "name": "amzl-sh-backend",
+  "version": "0.0.1",
+  "description": "Backen amzl stationhealth",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/ --exec babel-node -e js",
+    "build": "babel src -d  build --copy-files",
+    "lint": "eslint src/ --fix",
+    "prestart": "npm install ; npm run build",
+    "start": "node build/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dulink-LLC/amzl-sh-backend.git"
+  },
+  "keywords": [
+    "backend",
+    "nodejs"
+  ],
+  "author": "dduarte19",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dulink-LLC/amzl-sh-backend/issues"
+  },
+  "homepage": "https://github.com/Dulink-LLC/amzl-sh-backend#readme",
+  "dependencies": {
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "html-pdf": "^2.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
+    "mongoose": "^5.9.15",
+    "mongoose-timezone": "^1.3.0",
+    "node-cron": "^2.0.3",
+    "nodemailer": "^6.4.10",
+    "xlsx": "^0.16.7"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^7.1.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4"
+  },
+  "engines": {
+    "node": "12.18.2",
+    "npm": "6.14.5"
+  }
+}

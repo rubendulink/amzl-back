@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  .gradient {
+    background-image: linear-gradient(to bottom, rgb(221, 8, 49), rgb(255, 226, 13)) !important;
+    background-color: transparent !important;
+  }
+  body{
+    padding: 0 1.5em;
+    font-size: 14px;
+  }
+  .title{
+    font-size: 25px;
+    font-weight: bold;
+  }
+  .cycle{
+    text-align: center;
+  }
+  .cycle-text{
+    /* background: #FFE000;
+    background: -webkit-linear-gradient(to right, #799F0C, #FFE000);
+    background: linear-gradient(to right, #799F0C, #FFE000); */
+    color: #fff;
+    border-radius: 10px;
+    padding: .2em .8em;
+  }
+  .icon{
+    background: slategrey;
+    width: 90px;
+    height: 90px;
+    display: inline-block;
+    border-radius: 15px;
+    float: left;
+  }
+  .data {
+    float: left;
+    margin-right:77.6vw;
+    margin-left: 1em;
+  }
+  .data p:first-child{
+    margin-top: 10px;
+  }
+  header{
+    display: block;
+    height: 11em
+  }
+  .textarea {
+    width: 100%; 
+    height: 5em;
+    resize: none;
+    border: 1px solid #c6c6c6;
+    outline: none; 
+  }
+  .list_item {
+    font-weight: bold;
+    float: left;
+  }
+  .data {
+    border-radius: 15px;
+    padding:.4em 1em;
+    color: #fff;
+    font-weight: bold;
+    width: 96%;
+    font-size: 17px;
+    margin: 0 auto;
+  }
+  .data__item:nth-of-type(2) {
+    margin: 0 2%;
+  }
+
+  .data-container {
+    width: 45%;
+    display: inline-block;
+  }
+  .data-container:nth-of-type(2){
+    float: right;
+  }
+</style>
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+
+
+<body>
+  <header>
+    <h1>
+      Capacity
+    </h1>
+
+    <!-- <div class="icon gradient"></div> -->
+    <div class="data gradient">
+      <span class="data__item">
+        From: <span>< date ></span>
+      </span>
+      <span class="data__item">
+        User: <span>< user ></span>
+      </span>
+      <span class="data__item">
+        Site: <span>< name ></span>
+      </span>
+    </div>
+  </header>
+
+  <br>
+  <br>
+
+  <main>
+
+    <!-- cycle 1 -->
+
+    < for(const cycle of cycles) {> 
+
+
+      <div class="data-container">
+        <div class="cycle">
+          <span class="cycle-text gradient">Cycle < cycle.cycle ></span>
+        </div>
+
+        <br/>
+
+        <div>
+          <span class="list_item">LMCP DPS Routes</span>
+          <span style="float: right;">
+            < cycle.lcmpDSPRoutes >
+          </span>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div>
+          <span  class="list_item">RTW DPS Routes</span>
+          <span style="float: right;">
+            < cycle.rtwDSPRoutes >
+          </span>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div>
+          <span  class="list_item">DPS/AADA Attended Routes</span>
+          <span style="float: right;">
+            < cycle.attendedRoutes >
+          </span>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div>
+          <span  class="list_item">LMCP DSP SPR</span>
+          <span style="float: right;">
+            < cycle.lcmpDSPSPR >
+          </span>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div>
+          <span  class="list_item">RTW DSP SPR</span>
+          <span style="float: right;">
+            < cycle.rtwDSPSpr >
+          </span>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div>
+          <span  class="list_item">LMCP Flex SPR</span>
+          <span style="float: right;">
+            < cycle.lcmpFlexSpr >
+          </span>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div>
+          <span  class="list_item">RTW Flex SPR</span>
+          <span style="float: right;">
+            < cycle.rtwFlexSpr >
+          </span>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div>
+          <span  class="list_item">Reduced by Routes</span>
+          <span style="float: right;">
+            < cycle.reducedRoutes >
+          </span>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div>
+          <span  class="list_item">Rolled to C2</span>
+          <span style="float: right;">
+            < cycle.rolledC2 >
+          </span>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div>
+          <P  class="list_item">Notes</P>
+          <textarea class="textarea" value="< cycle.notes >">< cycle.notes ></textarea>
+        </div>
+      </div>
+
+    < } >
+
+  </main>
+</body>
+
+</html>
